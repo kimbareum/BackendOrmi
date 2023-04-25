@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <!-- emmet 문법 -->
+    <!-- https://docs.emmet.io/cheat-sheet/ -->
+    htmlko
+    <!-- 우리가 설정한 스니펫 -->
+
+    <p>world</p>
+    <!-- alt + w : 태그로 감싸기 -->
+
+    <h1></h1>
+    <!-- h1치고 tab -->
+
+    h1{hello world}
+    <h1>hello world</h1>
+    <!-- 내용넣기 -->
+
+    h2+h3
+    <h2></h2>
+    <h3></h3>
+    <!-- 연속된 2개 만들기 -->
+    
+    p{hello}*5
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <!-- 같은거 여러개 만들기 -->
+
+    h${hello}*5
+    <h1>hello</h1>
+    <h2>hello</h2>
+    <h3>hello</h3>
+    <h4>hello</h4>
+    <h5>hello</h5>
+    <!-- 바뀌는애들은 $넣어서 만들면 순서대로 만들어줌 -->
+
+    .one
+    <div class="one"></div>
+    p.one
+    <p class="one"></p>
+    <!-- 클래스(주로꾸밀때) -->
+    #two
+    <div id="two"></div>
+    <!-- ID -->
+    
+    .btnActive$
+    <div class="btnActive1"></div>
+    <div class="btnActive2"></div>
+    <!-- $ 이용하기 -->
+
+    p.one#two
+    <p class="one" id="two"></p>
+    <!-- p태그 안에 클래스 아아디 동시에 집어넣기 -->
+
+    lorem
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam corrupti sapiente error fugit delectus ad officia? Possimus, provident ex architecto, voluptas beatae perferendis aliquam praesentium consectetur optio suscipit eos culpa?
+    <!-- 쓸모없는 텍스트 만들기(입숨) -->
+
+    .one>.two>.three
+    <div class="one">
+        <div class="two">
+            <div class="three"></div>
+        </div>
+    </div>
+    <!-- 하위항목 만들기 -->
+
+    table>(tr>td*5)*4
+    <!-- 4행 5열 테이블 만들기 -->
+
+    p[a='one' b='two' c='three']
+    <p a="one" b="two" c="three"></p>
+    <!-- 태그안에 텍스트 집어넣기-->
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>block inline</title>
+    <style>
+        div,
+        span {
+            background : salmon;
+            border : 1px solid black;
+            width : 100px;
+            height : 100px;
+            padding : 10px;
+            /* 박스여백 */
+            margin: 10px;
+            /* 외부여백 */
+        }
+        div {
+            /* display:inline-block; */
+            /* 가로로 쌓이는 블록 */
+        }
+        span{
+            background-color : royalblue
+        }
+    </style>
+</head>
+<body>
+    <div>div<span>span</span></div>
+    <div>hello</div>
+    <div>123123</div>
+    <!-- 블록요소 -> 언제나 새로운 줄에서 시작, 좌우 양측으로 늘어나 가능한 모든 너비 차지. 세로로 쌓임 -->
+    <span>span</span><span>span</span><span>span</span>
+    <!-- 인라인 요소 -> 글자만큼의 너비 차지, 가로로쌓임 -->
+    <!-- 인라인요소안에 블록요소 넣을 수 없음 역은 가능-->
+    <!-- a태그(링크)의 경우 안에 블록요소 중첩 가능 -->
+    <!-- 패딩과 마진 보더 적용. 상하마진은 적용되지 않음 -->
+</body>
+</html>

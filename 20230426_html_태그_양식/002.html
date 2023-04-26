@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>element</title>
+    <style>
+        img{
+            vertical-align:top;
+            /* 이미지태그 하단 정렬 */
+        }
+    </style>
+</head>
+<body>
+    <div><strong>div : </strong> 콘텐츠분할요소<br>블록요소<br>CSS로 스타일을 주기 전에는 콘텐츠나 레이아웃에 영향이 없음(세로로만 쌓임)</div>
+    <div><strong>div2</strong></div>
+
+    <span><strong>span : </strong>인라인요소<br>CSS로 스타일을 주기 전까지는 콘텐츠나 레이아웃에 영향이 없음(가로로만 쌓임)</span>
+    <span><strong>span2</strong></span>
+
+    <h1>제목1 한페이지에 하나만 있는게 권장됨</h1>
+    <h2>제목2</h2>
+    <h3>제목3</h3>
+    <h4>제목4</h4>
+    <h5>제목5</h5>
+    <h6>제목6</h6>
+    <div>목차를 지정하는 용도지 글씨크기를 바꾸려고 쓰는게 아님<br>순차적으로 사용해야함(h1쓰고 바로 h3 쓸수 없음)</div>
+    <br>
+    <a href="https://www.naver.com/" target="_blank">링크</a>
+    <div>a태그 href = 하이퍼링크 or 해당페이지에서 다른 위치로(id 기준?) 이동</div>
+    <div>메일주소(mailto)랑 전화번호(tel) 도 가능(a href="tel or mailto:전화번호 or 메일")</div>
+    <div>target = "_blank" -> 새창으로 열기</div>
+    <div>download = 다운로드하기</div>
+    <a href="./index.html" target="_blank">index.html</a>
+
+    
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus reprehenderit sequi asperiores blanditiis, odit eum aperiam impedit mollitia corrupti veniam sit. Laborum deleniti aliquid ratione nesciunt error quibusdam, distinctio ad.</p>
+    <p><strong>p 태그</strong> 하나의 문단을 적는태그 이미지나 입력 폼등 서로 관련있는 콘텐츠는 뭐든지 가능<br>블록요소</p>
+
+    <code>push() : code = 짧은 코드 같은거 나타내는것. 글꼴이 조금다름(고정폭 글꼴)</code>
+    <pre>
+HTML에 작성한 내용 그대로를(공백까지) 고정폭 글꼴으로 표현하는 <strong>pre</strong>
+    dnkfdnfkdk
+            dkfkdnfkdn
+    dfnkfnkk   dnkfdknf df
+                dkfnkdfnkek
+    </pre>
+
+    <div>목록태그 <strong>ol[type = "1,a,A,i,I" reversed start = "3"]>li</strong></div>
+    <ol type = "1" reversed start = "3">
+        <li>첫번째</li>
+        <li>두번째</li>
+        <li>세번째</li>
+        <li>네번째</li>
+    </ol>
+    <div>목록태그 <strong>ul>li</strong></div>
+    <ul>
+        <li>첫번째</li>
+        <li>두번째</li>
+        <li>세번째</li>
+        <li>네번째</li>
+    </ul>
+
+    <div><strong>imgsrc="경로" alt="대체텍스트. 이미지에대한 설명" width= height= style="width:200px; height:100px;" </strong></div>
+    <div>인라인 요소임!</div>
+    <img src="./est.jpg" alt="est" width="100">
+    <br>
+</body>
+</html>

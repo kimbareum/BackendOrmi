@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <div>form = 사용자에게 입력받은 정보를 제출하기 위한 대화용 컨트롤</div><br>
+    <div><strong>form method</strong></div>
+    <div><strong>post</strong>양식데이터를 요청 본문으로 전송. 브라우저에 의해 캐시되지 않고 브라우저 히스토리에도 남지 않음. 데이터의 길이제한이 없고 get 방식보다 보안성이 높음. 쿼리문자열과는 별도로 전송</div>
+    <form
+        action="http://localhost:8000/"
+        method="post"
+        enctype="multipart/form-data"
+    >
+    <input type="text" name="myTextField">
+    <input type="checkbox" name="myCheckBox">Check</input>
+    <input type="file" name="myFile">
+    <button>Send the file</button>
+</form>
+<div><br><strong>get</strong>양식데이터를 action URL뒤에 ?를 붙여서 전송. 캐시됨. 길이제한 있음. 보안취약</div>
+<form method="get" action="http://naver.com">
+    <div>
+        <label for="user-name">이름</label>
+        <input id="user-name" type="text" name="name">
+    </div>
+    <div>
+        <label for="user-age">나이</label>
+        <input id="user-age" type="number" name="age">
+    </div>
+    <button type="submit">버튼</button>
+<p><strong>input</strong>속성 type, name,value,autocomplete,placeholder, required, disabled, readonly</p>
+<p><strong>type</strong>입력받는 데이터의 종류</p>
+<p><strong>label</strong> 입력해야하는 값이 무엇인지 알려주는 항목</p>
+<p><strong>action 속성</strong>양식데이터를 처리할 프로그램의 url. 데이터를 어디로 보낼지를 지정</p>
+<p><strong>autocomplete 속성</strong>이전에 해당 양식의 입력된 값이 있을 경우 자동 완성</p>
+<p><strong>button</strong>type="button"(행동값없음),"summit"(제출, 기본값임),"reset"(초기화)<br>버튼은 닫는태그가 있고 input은 없음->버튼은 이미지같은걸 넣을 수 있고 input은 못넣음</p>
+<p>
+    text / password / url / search / tel <br>
+    maxlength: 문자수 최대 길이 <br>
+    minlength: 문자수 최소 길이<br>
+    number <br>
+    min max step
+</p>
+</form>
+</body>
+</html>

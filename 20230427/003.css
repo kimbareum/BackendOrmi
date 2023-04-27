@@ -1,0 +1,11 @@
+/* 선택자 { 속성 : 속성값 ; } 의 구조 */
+body {
+  background: slateblue;
+  color: white;
+}
+
+/* 적용방식 : 인라인방식, 내부스타일, 외부스타일 */
+/* 인라인방식 : 태그안에 style로 스타일을 줌 <p style="color:yellow;"> 식 */
+/* 내부 스타일 : head 태그 안에다 style태그 만들고 안에 작성*/
+/* 외부스타일 <link rel="stylesheet" href="파일명.css"> */
+/* 인라인이 우선. 그 외에는 늦게 써진쪽이 우선 */

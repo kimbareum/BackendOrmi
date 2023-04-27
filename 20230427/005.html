@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 상속</title>
+    <style>
+      /* h1{
+            color:red
+        }
+        h2{
+            color:red
+        }
+        p{
+            color:red
+        } */
+
+      /* h1,
+      h2,
+      p {
+        color: red;
+      } */
+
+      div {
+        color: red;
+        border: 5px solid royalblue;
+      }
+      h1,
+      h2,
+      p {
+        border: inherit;
+      }
+      p {
+        border: initial;
+      }
+    </style>
+  </head>
+  <body>
+    <span
+      >div에다가 스타일 지정해서 안에있는 항목 전체에 스타일을 줄 수 있음.
+      하지만 width, height, padding, border 같은 것들은 상속되지 않음<br />자식
+      스타일에다가 속성:inherit 넣으면 뭐건간에 상속받기. initial은 브라우저
+      초기값으로 지정. <br />form 요소는 상속을 받지 않음</span
+    >
+    <div>
+      <h1>Hello</h1>
+      <h2>Hello</h2>
+      <p>Hello</p>
+      <button type="button">Hello</button>
+    </div>
+  </body>
+</html>

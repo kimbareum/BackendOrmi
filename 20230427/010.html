@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>우선순위</title>
+    <style>
+      /* 후자우선->구체성의원칙->중요성의원칙 */
+      /* 구체성 가중치 : 인라인 > id > class, 가상클래스, 속성선택자 > type(tag), 가상 요소 선택자 > 전체선택자 */
+      /* div .hi{~~} 식으로 쓰는게 .hi{~~} 보다 구체성이 높음 (같은 가중치일 경우에) */
+      p {
+        color: red;
+      }
+      body .hi {
+        color: aqua;
+      }
+      .hi {
+        color: purple;
+      }
+      .hi {
+        color: green;
+      }
+      p {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="hi">안녕하세요</p>
+  </body>
+</html>

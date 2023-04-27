@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>복합선택자</title>
+    <style>
+      /* 자손 선택자 띄어쓰기 : 요소1 띄어쓰기 요소2 를 하면 요소1의 모든 자손중에 요소2인것을 골라라 */
+      section p {
+        border: 5px solid skyblue;
+      }
+      /* 자식선택자 > : 직계자식만 선택 */
+      section > p {
+        color: red;
+      }
+      /* 일반형제선택자 ~ : 뒤에나오는 "형제"만 선택 */
+      section ~ p {
+        border: 5px solid salmon;
+      }
+      /* 인접형제선택자 + : 바로 뒤에 인접한 형제만 선택 */
+      section + p {
+        color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <p>첫번째</p>
+    <p>두번째</p>
+    <p>세번째</p>
+    <section>
+      <div>
+        section div
+        <p>section div p1</p>
+        <p>section div p2</p>
+      </div>
+      <p>section p1</p>
+      <p>section p2</p>
+    </section>
+    <!-- <div>3.5번째</div> -->
+    <p>네번째</p>
+    <p>다섯번째</p>
+    <p>여섯번째</p>
+  </body>
+</html>

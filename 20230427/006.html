@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택자</title>
+    <style>
+      /* *= 전체선택자 */
+      * {
+        border: 5px solid royalblue;
+        padding: 20px;
+      }
+      /* #id = 아이디선택자, 같은 아이디는 문서내에 하나만 있어야함 */
+      #btn {
+        border: 1px solid royalblue;
+      }
+      /* .class = 클래스 선택자. 같은 클래스는 여러개 있을 수 있음*/
+      .hi {
+        background-color: yellow;
+      }
+      h1.hi {
+        color: seagreen;
+      }
+      /* [특성] = 특성 선택자, type만 적어서 type을 포함한 전부를 선택하거나 type="~~" 식으로 적어서 특정 타입값을 가진 애들만 선택하는 등으로 이용*/
+      [type="text"] {
+        border-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1 class="hi">Hello</h1>
+      <p>Hello</p>
+      <p class="hi">Hello</p>
+      <button id="btn" type="button">Hello</button><br /><br />
+      <label for="text">text</label>
+      <input type="text" id="text" />
+      <label for="email">email</label>
+      <input type="email" id="email" />
+    </div>
+  </body>
+</html>

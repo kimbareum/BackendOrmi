@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가상 클래스 선택자</title>
+    <style>
+      a:visited {
+        /* visited(방문했던 링크), link(방문하지않은링크) */
+        color: purple;
+      }
+      a:hover {
+        /* 마우스오버시 */
+        color: black;
+        background-color: yellow;
+      }
+      a:active {
+        /* 마우스로 클릭중에 */
+        color: royalblue;
+        background-color: skyblue;
+      }
+      a:focus {
+        /* 포커스(탭키로 지정등) 되었을때 */
+        color: white;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#">링크</a>
+  </body>
+</html>

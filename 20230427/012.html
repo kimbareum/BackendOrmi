@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>단위</title>
+    <style>
+      /* 절대길이단위 : px */
+      /* 상대 길이 단위 : %(부모요소의 백분율),vw(화면의 넓이 %),vh(화면의 높이 %),vmax,em(상속받은 요소의 글자크기 기준 배수),rem(최상위요소의 글자크기를 기준으로하는 배수 단위, 기본 16)... */
+      body {
+        margin: 0;
+      }
+      .div1 {
+        /* width: 1000px; */
+        width: 100vw;
+        height: 200vh;
+        background-color: salmon;
+        font-size: 40px;
+        border: 5px solid green;
+      }
+      .div2 {
+        width: 50%;
+        height: 50%;
+        background-color: royalblue;
+        font-size: 2em;
+        border-left: 0px;
+        /* border: 5px solid green; */
+      }
+      .div3 {
+        width: inherit;
+        height: inherit;
+        background-color: yellow;
+        font-size: 3rem;
+        border-left: 0px;
+        /* border: 5px solid green; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div1">
+      1
+      <div class="div2">
+        2
+        <div class="div3">3</div>
+      </div>
+    </div>
+  </body>
+</html>

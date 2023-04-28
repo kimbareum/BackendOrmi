@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>float</title>
+    <style>
+      .wrap {
+        background-color: skyblue;
+        overflow: hidden;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: slateblue;
+        float: left;
+      }
+      /* p {
+        clear: left;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <p>
+        float는 한 요소를 보통 흐름으로부터 빠져 텍스트 및 인라인 요소가 그
+        주위를 감싸 해당요소의 좌, 우측에 배치되게 하는 방법. left, right,
+        none(적용안함)이 있고. float는 블록 레이아웃이 되게 만듬. clear: left;
+        를 형제요소에 주면 float를 없앨 수 있음. <br />또한 float로 만든 요소는
+        위치정보가 아예 없음. 따라서 float만 가진 요소에는 배경등을 넣으면
+        적용이안됨 -> 해결방법 1.overflow: hidden;, 2. content: ""; display =
+        block; clear=left;
+      </p>
+    </div>
+    <p>
+      float는 한 요소를 보통 흐름으로부터 빠져 텍스트 및 인라인 요소가 그 주위를
+      감싸 해당요소의 좌, 우측에 배치되게 하는 방법. left, right,
+      none(적용안함)이 있고. float는 블록 레이아웃이 되게 만듬. clear: left; 를
+      형제요소에 주면 float를 없앨 수 있음.또한 float로 만든 요소는 위치정보가
+      아예 없음. 따라서 float만 가진 요소에는 배경등을 넣으면 적용이안됨 ->
+      해결방법 1.overflow: hidden, 2. content: ""; display = block; clear=left;
+    </p>
+  </body>
+</html>

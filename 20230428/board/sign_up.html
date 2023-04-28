@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <div class="header">
+      <h1><a href="index.html">HTML/CSS 실습</a></h1>
+      <div class="header-click">
+        <!-- text-decoration a태그 밑줄 -->
+        <a href="login.html">로그인 </a>
+        <a href="chat.html">채팅 </a>
+        <a href="sign_up.html">회원가입 </a>
+        <button type="button">로그아웃</button>
+      </div>
+    </div>
+    <!-- main -->
+    <div class="main">
+      <div class="container">
+        <h1 class="title">회원가입</h1>
+        <p class="description">원활한 서비스 이용을 위해 회원가입을 해주세요</p>
+
+        <form class="login">
+          <div>
+            <label class="label-width" for="user-id">아이디</label>
+            <input type="text" id="user-id" name="user-id" />
+          </div>
+          <div>
+            <label class="label-width" for="user-email">이메일</label>
+            <input type="email" id="user-email" name="user-email" />
+          </div>
+          <div>
+            <label class="label-width" for="user-pw">비밀번호</label>
+            <input type="password" id="user-pw" name="user-pw" />
+          </div>
+          <div>
+            <label class="label-width" for="user-name">닉네임</label>
+            <input type="text" id="user-name" name="user-name" />
+          </div>
+          <fieldset class="field">
+            <legend>성별</legend>
+            <ul>
+              <li>
+                <input type="radio" name="gender" id="gender" />
+                <label for="gender">남성</label>
+              </li>
+              <li>
+                <input type="radio" name="gender" id="gender2" />
+                <label for="gender2">여성</label>
+              </li>
+              <li>
+                <input type="radio" name="gender" id="gender3" />
+                <label for="gender3">선택안함</label>
+              </li>
+            </ul>
+          </fieldset>
+          <fieldset class="field">
+            <legend>사용언어</legend>
+            <ul>
+              <li>
+                <input type="checkbox" name="html" id="tech1" />
+                <label for="tech1">html</label>
+              </li>
+              <li>
+                <input type="checkbox" name="CSS" id="tech2" />
+                <label for="tech2">CSS</label>
+              </li>
+              <li>
+                <input type="checkbox" name="JavaScript" id="tech3" />
+                <label for="tech3">JavaScript</label>
+              </li>
+              <li>
+                <input type="checkbox" name="Python" id="tech4" />
+                <label for="tech4">Python</label>
+              </li>
+              <li>
+                <input type="checkbox" name="Django" id="tech5" />
+                <label for="tech5">Django</label>
+              </li>
+              <li>
+                <input type="checkbox" name="GitHub" id="tech6" />
+                <label for="tech6">GitHub</label>
+              </li>
+              <li>
+                <input type="checkbox" name="PostgreSQL" id="tech7" />
+                <label for="tech7">PostgreSQL</label>
+              </li>
+            </ul>
+          </fieldset>
+          <button class="submit-button" type="submit">회원가입</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <p class="footer">Copyright 2023. 김바름 All rights reserved.</p>
+  </body>
+</html>

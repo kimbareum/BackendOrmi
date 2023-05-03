@@ -9,9 +9,9 @@ while True:
     else:
         print("0 이상의 수를 입력해주세요.") 
 money_type = (5000,1000,500,100)
-money_num = [0,0,0,0]
+money_num = []
 for i in range(4):
-    money_num[i] = money//money_type[i]
+    money_num.append(money//money_type[i])
     # money-=money_type[i]*money_num[i]
     money %= money_type[i]
 

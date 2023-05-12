@@ -15,10 +15,10 @@ html = response.text
 soup = BeautifulSoup(html, "html.parser")
 
 총액정보 = soup.select("table.table-hover")
-제코베연구원 = 총액정보[0].select(".num > span")
+제코베연구원_일일거래량 = 총액정보[0].select('tr > td.num:nth-child(7)')
 
 total = 0
-for i in range(5, len(제코베연구원), 6):
-    total += int(제코베연구원[i].text.replace(",", ""))
+for i in 제코베연구원_일일거래량 :
+    total += int(i.text.replace(',',''))
 
 print(total)

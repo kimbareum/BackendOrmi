@@ -16,10 +16,59 @@ class BinaryTree:
 
     def __len__(self):
         return self.count
+    
+    def __str__(self):
+        return '/' + str(self.DFS())[1:-1] + '/'
+
+    def depth(self, target):
+        currentNode = self.root
+        depth = 0
+        while currentNode:
+            if target == currentNode.data:
+                return depth
+            elif target < currentNode.data:
+                currentNode = currentNode.left
+            else:
+                currentNode = currentNode.right
+            depth += 1
+        return -1
 
     def remove(self, target):
         currentNode = self.root
         parentNode = self.root
+
+        # root노드일 경우
+        if self.root.data == target:
+            if currentNode.left and not currentNode.right:
+                self.root = currentNode.left
+            elif not currentNode.left and currentNode.right:
+                self.root = currentNode.right
+            else:
+                self.root = currentNode.right
+                prev = currentNode.left
+                currentNode = currentNode.right
+                while currentNode.left and currentNode.right:
+                    currentNode.left, prev = prev, currentNode.left
+                    currentNode = currentNode.right
+                if not currentNode.left:
+                    currentNode.left = prev
+                else:
+                    data = prev.data
+                    while currentNode:
+                        if data < currentNode.data:
+                            if not currentNode.left:
+                                currentNode.left = prev
+                                return
+                            else:
+                                currentNode = currentNode.left
+                        elif data > currentNode.data:
+                            if not currentNode.right:
+                                currentNode.right = prev
+                                return
+                            else:
+                                currentNode = currentNode.right
+            return
+        # root 노드가 아닐 경우
         while currentNode:
             if currentNode.data == target:
                 break
@@ -60,29 +109,23 @@ class BinaryTree:
             while newCurrentNode.left and newCurrentNode.right:
                 newCurrentNode.left, prev = prev, newCurrentNode.left
                 newCurrentNode = newCurrentNode.right
+            if not newCurrentNode.left:
+                newCurrentNode.left = prev
             else:
-                if not newCurrentNode.left:
-                    newCurrentNode.left = prev
-                else:
-                    while newCurrentNode:
-                        if data < currentNode.data:
-                            if not currentNode.left:
-                                currentNode.left = prev
-                                self.count += 1
-                                return
-                            else:
-                                currentNode = currentNode.left
-                        elif data > currentNode.data:
-                            if not currentNode.right:
-                                currentNode.right = prev
-                                self.count += 1
-                                return
-                            else:
-                                currentNode = currentNode.right
-            if target < parentNode.data:
-                parentNode.left = currentNode.right
-            else:
-                parentNode.right = currentNode.right
+                data = prev.data
+                while newCurrentNode:
+                    if data < currentNode.data:
+                        if not currentNode.left:
+                            currentNode.left = prev
+                            return
+                        else:
+                            currentNode = currentNode.left
+                    elif data > currentNode.data:
+                        if not currentNode.right:
+                            currentNode.right = prev
+                            return
+                        else:
+                            currentNode = currentNode.right
 
     def insert(self, data):
         newNode = Node(data)
@@ -143,6 +186,7 @@ tree.insert(7)
 tree.insert(2)
 tree.insert(10)
 
-print(tree.DFS())
-tree.remove(8)
-print(tree.DFS())
+print(tree)
+tree.remove(5)
+# print(tree.depth(100))
+print(tree)

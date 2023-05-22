@@ -126,6 +126,11 @@ class BinaryTree:
                             return
                         else:
                             currentNode = currentNode.right
+            if target < parentNode.data:
+                parentNode.left = currentNode.right
+            else:
+                parentNode.right = currentNode.right
+            
 
     def insert(self, data):
         newNode = Node(data)
@@ -187,6 +192,6 @@ tree.insert(2)
 tree.insert(10)
 
 print(tree)
-tree.remove(5)
+tree.remove(3)
 # print(tree.depth(100))
 print(tree)

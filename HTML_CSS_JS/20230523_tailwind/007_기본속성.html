@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tail wind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- https://tailwindcss.com/docs/margin -->
+    <!-- https://tailwindcss.com/docs/padding -->
+    <!-- https://tailwindcss.com/docs/font-weight -->
+    <!-- https://tailwindcss.com/docs/text-color -->
+    <div class="text-base">hello world</div>
+    <div class="text-lg">hello world</div>
+    <div class="text-2xl">hello world</div>
+    <div class="text-5xl">hello world</div>
+
+    <br>
+
+    <div class="border border-gray-950 p-3">hello</div>
+    <div class="border border-gray-950 p-3 mt-2 w-1/2 mx-auto">hello p-3 mt-2 w-1/2 mx-auto</div>
+    <div class="border border-gray-950 p-3 mt-4">hello</div>
+    <div class="border border-gray-950 p-3 mt-4 pl-2">hello</div>
+
+    <br>
+
+    <!-- x축과 y축에 대해 mx my 도 가능 -->
+    <div class="border border-gray-950 p-3 my-2">hello2</div>
+    <div class="border border-gray-950 p-3 my-2">hello2</div>
+    <div class="border border-gray-950 p-3 my-2">hello2</div>
+
+    <br>
+
+    <div class="space-y-2">
+        <div class="border border-gray-950 p-3">hello</div>
+        <div class="border border-gray-950 p-3">hello</div>
+        <div class="border border-gray-950 p-3">hello</div>
+    </div>
+
+    <br>
+    <!-- 점을 표시하려면 list-disc. 기본값은 화면 왼쪽에 위치해있으니까 p-5로 보이게. -->
+    <div class="p-5">
+        <ul class="list-disc">
+            <li>hello</li>
+            <li>hello</li>
+            <li>hello</li>
+            <li>hello</li>
+            <li>hello</li>
+        </ul>
+    </div>
+    <div class="p-5">
+        <ul class="list-disc">
+            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, consequatur. Soluta atque nobis reiciendis, fuga ab harum voluptatem voluptate inventore recusandae, rem tenetur, blanditiis alias vel. Dolorum consequatur soluta ea.</li>
+            <li>hello</li>
+        </ul>
+    </div>
+    <div class="p-5">
+        <ul class="list-disc list-inside">
+            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, consequatur. Soluta atque nobis reiciendis, fuga ab harum voluptatem voluptate inventore recusandae, rem tenetur, blanditiis alias vel. Dolorum consequatur soluta ea.</li>
+            <li>hello</li>
+        </ul>
+    </div>
+    <div class="p-5">
+        <ul class="list-decimal">
+            <li>hello</li>
+            <li>hello</li>
+            <li>hello</li>
+        </ul>
+    </div>
+
+    <br>
+    <!-- rounded-full w24 -->
+    <!-- https://tailwindcss.com/docs/border-radius#rounded-corners -->
+    
+    <div class="flex">
+        <div class="w-16 h-16 bg-red-200 text-xs">plane</div>
+        <div class="w-16 h-16 bg-red-200 rounded text-xs">rounded</div>
+        <div class="w-16 h-16 bg-red-200 rounded-2xl text-xs">rounded-2xl</div>
+        <div class="w-16 h-16 bg-red-200 rounded-full text-xs">rounded-full</div>
+    </div>
+    <!-- https://tailwindcss.com/docs/border-radius -->
+    <!-- https://tailwindcss.com/docs/border-width -->
+    <div class="border-l-4">hello world</div>
+    <div class="border-l-4 border-gray-500 pl-2">hello world</div>
+    <div class="border-t-4 border-gray-500">hello world</div>
+    <div class="border-b-4 border-gray-500">hello world</div>
+    <div class="border-r-4 border-gray-500">hello world</div>
+
+    <br>
+
+    <!-- https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values -->
+    <div class="text-[25px]">hello world</div>
+    <div class="mt-[17px]">hello world</div>
+    <div class="bg-[#4267B2] text-white">facebook</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      console.log("hello world");
+      let x = [10, 20, 30];
+      // var x : 전역변수 x를 선언 (함수스코프)
+      // let x : 변경이 가능하고 블록스코프를 갖는 x를 선언
+      // const x : 변경이 불가능하고 블록스코프를 갖는 x를 선언
+      console.dir(x);
+      const y = {
+        one: 1,
+        two: 2,
+        three: 3,
+      };
+      console.table(y);
+
+      console.group("one");
+      console.log("호준/팀원");
+      console.log("성효/팀원");
+      console.log("성철/팀원");
+      console.group("two");
+      console.log("이도/팀원");
+      console.log("기현/팀원");
+      console.log("슬기/팀원");
+      console.groupEnd();
+      console.log("end");
+      console.groupEnd();
+      console.log("end");
+
+      // 이 이후는 잘 안씀.
+
+      //   console.error
+      //   console.warn
+      //   console.info
+      //   ...
+
+      console.log("%c경고!", "color:red; font-size:26px;");
+    </script>
+  </body>
+</html>

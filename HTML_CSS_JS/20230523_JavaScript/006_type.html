@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <h1>변수의 타입</h1>
+    <script>
+      // Number, String, Boolean, Array, Object(Map:최신문법), Set
+      console.log(10, typeof 10);
+      console.log(10.1, typeof 10.1);
+      console.log("hello", typeof "hello");
+      console.log(true, typeof true);
+      console.log("[1, 2, 3]", typeof [1, 2, 3]); // object // javascript가 어려운 이유
+      console.log("{one: 1, two: 2}", typeof { one: 1, two: 2 }); // object
+      console.log("Set('hello')", typeof new Set("hello")); // object
+      console.log("new Map()", typeof new Map()); // object
+      console.log("function () {}", typeof function () {}); // function
+      console.log("/정규표현식/g", typeof /정규표현식/g); // object
+
+      ////////////////////////
+
+      console.log(10 + "10"); // 1010
+      console.log("10" + 10); // 1010
+      console.log("10" + true); // 10true
+      console.log(true + "10"); // true10
+      console.log(true + 10); // 11
+      // 예외가 많아서 규칙에 일관성이 없음.(설계자체가 에러가 최소화하는쪽으로 되어있어서.)
+      // 케이스를 다 외우는 편이 정확함...
+
+      ///////////////////////
+      // 형변환
+      console.log(Number("10")); // 권하지 않음. parseInt를 쓰는게 좋음.
+      console.log(Boolean("10")); // !!'hello' == 이중부정으로 Boolean으로 변환.
+      console.log(String(10)); // toSting 메서드가 있으면 이걸 사용하는게 좋음.
+      console.log(parseInt(10.1));
+      console.log(~~10.1); // 비트연산자를 이용한 형변환, 가독성 낮아지니 실무에선 X
+    </script>
+  </body>
+</html>

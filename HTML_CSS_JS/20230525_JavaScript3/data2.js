@@ -159,7 +159,7 @@ let data = [
         },
         study_status: {
             id: 4,
-            name: "완료",
+            name: "진행 중",
         },
         study_location: {
             id: 1,

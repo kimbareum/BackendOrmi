@@ -6,18 +6,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JSON 실습2</title>
         <style>
-            body {
+            .main_box {
                 display: flex;
                 gap: 50px;
                 flex-wrap: wrap;
             }
             .flex-item {
                 display: flex;
-                width: 350px;
+                width: 300px;
                 flex-direction: column;
-                justify-content: space-between;
                 border: 3px solid lightsteelblue;
                 border-radius: 5%;
+            }
+            .status_box {
+                display: flex;
+                align-items: center;
+                height: 40px;
+                padding-left: 5px;
+                gap: 10px;
+            }
+            .svg {
+                height: 20px;
             }
             .status {
                 display: flex;
@@ -25,52 +34,127 @@
                 align-items: center;
                 font-weight: 700;
                 font-size: 17px;
+            }
+            .blue {
+                fill: royalblue;
                 color: royalblue;
-                padding-left: 5px;
+            }
+            .yellow {
+                fill: yellowgreen;
+                color: yellowgreen;
             }
             .imgbox {
-                display: flex;
-                align-items: center;
-                height: 350px;
+                position: relative;
+                height: 300px;
+                width: 300px;
+                overflow: hidden;
                 border-top: 3px solid lightsteelblue;
                 border-bottom: 3px solid lightsteelblue;
             }
             .thumbnail {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translate(50, 50);
                 width: 100%;
+                height: 100%;
+                object-fit: cover;
+                margin: auto;
             }
-            .difficulty {
-                width: 40px;
-                font-size: 12px;
+            .tag_box {
+                height: 30px;
+                margin-top: 5px;
+                display: flex;
+                align-items: center;
+            }
+            .tag {
+                font-size: 14px;
                 font-weight: 600;
                 border: 2px solid lightsteelblue;
                 border-radius: 20px;
                 text-align: center;
-                margin: 5px 0px 10px 5px;
+                margin: 0px 0px 0px 5px;
+                padding: 2px 7px 2px 7px;
+            }
+            .title_box {
+                display: flex;
+                height: 80px;
+                justify-content: center;
+                align-items: center;
             }
             .title {
-                height: 80px;
-                align-items: center;
+                text-align: center;
                 font-weight: 900;
                 font-size: 22px;
-                padding-left: 5px;
+                padding: 3px;
             }
         </style>
     </head>
     <body>
+        <div class="main_box"></div>
         <script src="data2.js"></script>
         <script>
             s = "";
             for (const i of data) {
-                s += `
-                <div class="flex-item">
-                    <span class="status">${i.study_status.name}</span>
-                    <div class="imgbox"><img class="thumbnail" src="${i.thumbnail}" alt="thumbnail"></div>
-                    <span class="difficulty">${i.difficulty.name}</span>
-                    <div class="title">${i.title}</div>
-                </div>
-                `;
+                // 이게 맞나요? 너무 복잡한거같은데...
+                // main_box 선택.
+                const main_box = document.querySelector(".main_box");
+                // 카드 하나 생성.
+                const box = document.createElement("div");
+                box.classList.add("flex-item");
+                // status용 박스 생성.
+                const statusbox = document.createElement("div");
+                statusbox.classList.add("status_box");
+                // 모집 중과 완료의 색을 다르게 하기.
+                let color = "";
+                if (i.study_status.name == "모집 중") {
+                    color = "blue";
+                } else {
+                    color = "yellow";
+                }
+                // SVG 아이콘 추가
+                statusbox.innerHTML = `<svg class="svg ${color}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"/></svg>`;
+                // status 추가
+                const status = document.createElement("span");
+                status.classList.add("status", color);
+                status.appendChild(
+                    document.createTextNode(i.study_status.name)
+                );
+                // 썸네일 박스 추가
+                const imgbox = document.createElement("div");
+                imgbox.classList.add("imgbox");
+                // 썸네일 추가
+                const thumbnail = document.createElement("img");
+                thumbnail.classList.add("thumbnail");
+                thumbnail.src = i.thumbnail;
+                // 태그 박스 추가
+                const tagbox = document.createElement("div");
+                tagbox.classList.add("tag_box");
+                // 태그들 추가
+                const difficulty = document.createElement("span");
+                difficulty.classList.add("tag");
+                difficulty.appendChild(
+                    document.createTextNode(i.difficulty.name)
+                );
+                const subject = document.createElement("span");
+                subject.classList.add("tag");
+                subject.appendChild(document.createTextNode(i.subject.name));
+
+                // 타이틀 박스 추가
+                const titlebox = document.createElement("div");
+                titlebox.classList.add("title_box");
+                const title = document.createElement("div");
+                title.classList.add("title");
+                title.appendChild(document.createTextNode(i.title));
+
+                // 추가된 요소들 위치에 맞게 자손으로 할당.
+                main_box.appendChild(box);
+                box.append(statusbox, imgbox, tagbox, titlebox);
+                statusbox.appendChild(status);
+                titlebox.appendChild(title);
+                tagbox.append(difficulty, subject);
+                imgbox.appendChild(thumbnail);
             }
-            document.querySelector("body").innerHTML = s;
         </script>
     </body>
 </html>

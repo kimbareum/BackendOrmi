@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <button id="btn1">클릭해봐요!</button>
+        <button id="btn2">클릭해봐요!</button>
+        <script>
+            let myObj = {
+                val1: 100,
+                func1: function () {
+                    console.log(this);
+                },
+            };
+
+            let test = myObj.func1;
+            // 버튼액션은 버튼이 자기를 호출한걸로 판단함.
+            // func1을 부른 myObj 가 자신을 호출했다고 나오지 않음.
+            let button1 = document.getElementById("btn1");
+            button1.addEventListener("click", myObj.func1);
+            let button2 = document.getElementById("btn2");
+            button2.addEventListener("click", test);
+        </script>
+    </body>
+</html>

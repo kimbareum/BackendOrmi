@@ -114,7 +114,7 @@ arr12.includes(1000); // false
 // in 문법은 index(key) in arr 로 써서 index나 key가 arr안에 존재하는지 판별함
 1 in arr12; // true
 10 in arr12; // false(인덱스가 0-9까지 존재)
-"one" in { one: 1, two: 2 }; // true
+d // true
 
 ////////////////////////////////////////////////////
 

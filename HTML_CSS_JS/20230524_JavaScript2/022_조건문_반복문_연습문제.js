@@ -125,9 +125,92 @@ function solution(my_string) {
 
 solution("p2o4i8gj2");
 
+/////////////////////////////////////////////////////////
+// advanced 문제
 fetch("http://test.api.weniv.co.kr/mall")
     .then((data) => data.json())
     .then((data) => {
         average = data.reduce((a, c) => a + c.price, 0) / data.length;
         console.log(`갯수 : ${data.length}, 평균 : ${average.toFixed(2)}`);
     });
+
+///////////////////////////////////////////////////////////
+// https://codingdojang.com/scode/393?answer_mode=hide
+// str(list(range(10001))).count('8')
+// 이 코드는 알고리즘 문제 풀이할 때만 쓰세요.
+".".repeat(99);
+".".repeat(99).split(".");
+"."
+    .repeat(99)
+    .split(".")
+    .map((v, i) => i + 1);
+"."
+    .repeat(99)
+    .split(".")
+    .map((v, i) => i + 1);
+"."
+    .repeat(99)
+    .split(".")
+    .map((v, i) => i + 1)
+    .join("")
+    .split("")
+    .filter((v) => v === "8").length;
+
+let s2 = "";
+for (let i = 0; i < 101; i++) {
+    s2 += i;
+}
+s2.split("").filter((v) => v === "8").length;
+
+Array(100)
+    .fill(0)
+    .map((v, i) => "" + i);
+
+Array(101)
+    .fill(0)
+    .map((v, i) => "" + i) // 안에서 메서드 체이닝을 한 번 더 할 수 있지만 복잡도만 상승할 것 같아 실행하지 않았습니다.
+    .join("")
+    .split("")
+    .filter((v) => v === "8").length;
+
+/////////////////////////////////////////////////////////////
+// 9. 가장 거리가 짧은 점
+
+// zip 구현
+const zip = (a, b) => a.map((v, i) => [v, b[i]]);
+
+let s1 = [1, 3, 4, 8, 13, 17, 20];
+
+zip(s1, s1.slice(1)).sort((a, b) => a[1] - a[0] - (b[1] - b[0]))[0];
+
+let answer = [0, Infinity];
+for (let i = 0; i < s1.length; i++) {
+    if (answer[1] - answer[0] > s1[i + 1] - s1[i]) {
+        answer = [s1[i], s1[i + 1]];
+    }
+}
+console.log(answer);
+
+/////////////////////////////////////////////////////////////////
+//
+
+let weight = [60, 50, 55, 60, 77, 88, 56, 67, 89, 45];
+let max_weight = 500;
+let total_weight = 0;
+let count = 0;
+for (const i of weight.sort((a, b) => a - b)) {
+    if (total_weight + i > max_weight) {
+        break;
+    }
+    total_weight += i;
+    count += 1;
+}
+console.log(count);
+
+// map 구현
+const map = (func, iter) => {
+    result = [];
+    for (const i of iter) {
+        result.push(func(i));
+    }
+};

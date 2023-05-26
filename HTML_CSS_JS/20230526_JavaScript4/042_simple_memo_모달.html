@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            main {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            input {
+                display: block;
+                width: 300px;
+                height: 30px;
+                margin-bottom: 10px;
+            }
+
+            textarea {
+                display: block;
+                width: 300px;
+                height: 300px;
+                margin-bottom: 10px;
+            }
+
+            button {
+                display: block;
+                width: 306px;
+                height: 30px;
+            }
+
+            /* 모달 스타일 */
+            .modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 999;
+                visibility: hidden;
+                opacity: 0;
+                transition: visibility 0s, opacity 0.3s;
+            }
+
+            .modal-content {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                max-width: 400px;
+            }
+
+            .modal.show {
+                visibility: visible;
+                opacity: 1;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <section>
+                <input type="text" name="" id="title" />
+                <textarea name="" id="content" cols="30" rows="10"></textarea>
+                <button onclick="saveNote()">메모</button>
+            </section>
+            <section id="display"></section>
+        </main>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <h3>메모 수정</h3>
+                <input type="text" id="edit-title" />
+                <textarea id="edit-content" cols="30" rows="10"></textarea>
+                <button onclick="updateNote()">저장</button>
+                <button onclick="hideModal()">취소</button>
+            </div>
+        </div>
+        <script>
+            let allMemo = JSON.parse(localStorage.getItem("allMemo"));
+            allMemo = allMemo ?? [];
+            render();
+
+            let editIndex; // 수정할 메모의 인덱스
+
+            function saveNote() {
+                const title = document.getElementById("title").value;
+                const content = document.getElementById("content").value;
+
+                allMemo.push({ title, content, len: allMemo.length });
+
+                localStorage.setItem("allMemo", JSON.stringify(allMemo));
+                render();
+            }
+
+            function render() {
+                const display = document.getElementById("display");
+                display.innerHTML = "";
+
+                for (const item of allMemo) {
+                    const saveTitle = document.createElement("h2");
+                    const saveContent = document.createElement("p");
+                    const saveId = document.createElement("p");
+                    const editMemoBtn = document.createElement("button");
+                    const deleteMemoBtn = document.createElement("button");
+
+                    saveTitle.textContent = item.title;
+                    saveContent.textContent = item.content;
+                    saveId.textContent = item.len + 1;
+
+                    editMemoBtn.textContent = "수정";
+                    editMemoBtn.setAttribute("id", item.len);
+                    editMemoBtn.setAttribute("onclick", "showModal()");
+
+                    deleteMemoBtn.textContent = "삭제";
+                    deleteMemoBtn.setAttribute("id", item.len);
+                    deleteMemoBtn.setAttribute("onclick", "remove()");
+
+                    display.appendChild(saveId);
+                    display.appendChild(saveTitle);
+                    display.appendChild(saveContent);
+                    display.appendChild(editMemoBtn);
+                    display.appendChild(deleteMemoBtn);
+                }
+            }
+
+            function remove() {
+                const idx = allMemo.find(
+                    (item) => item.len == event.srcElement.id
+                );
+                if (idx) {
+                    allMemo.splice(
+                        allMemo.findIndex((item) => item.len == idx.len),
+                        1
+                    );
+                }
+                localStorage.setItem("allMemo", JSON.stringify(allMemo));
+                render();
+            }
+
+            function showModal() {
+                const modal = document.getElementById("modal");
+                modal.classList.add("show");
+
+                const editTitle = document.getElementById("edit-title");
+                const editContent = document.getElementById("edit-content");
+
+                editIndex = event.srcElement.id;
+                editTitle.value = allMemo[editIndex].title;
+                editContent.value = allMemo[editIndex].content;
+            }
+
+            function hideModal() {
+                const modal = document.getElementById("modal");
+                modal.classList.remove("show");
+            }
+
+            function updateNote() {
+                const editTitle = document.getElementById("edit-title").value;
+                const editContent =
+                    document.getElementById("edit-content").value;
+
+                allMemo[editIndex].title = editTitle;
+                allMemo[editIndex].content = editContent;
+
+                localStorage.setItem("allMemo", JSON.stringify(allMemo));
+                render();
+
+                hideModal();
+            }
+        </script>
+    </body>
+</html>

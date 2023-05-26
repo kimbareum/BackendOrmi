@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>DOM 실습</title>
+    </head>
+    <style>
+        body {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin: auto;
+        }
+        .flex-item {
+            display: flex;
+            width: 350px;
+            /* height: 450px; */
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+        }
+        .thumbnail {
+            width: 100%;
+            border-radius: 10%;
+        }
+        .svg {
+            width: 20px;
+        }
+        .price {
+            font-weight: 600;
+        }
+        .priceBox {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    </style>
+    <body>
+        <script>
+            function make_box(...classList) {
+                const box = document.createElement("div");
+                box.classList.add(...classList);
+                return box;
+            }
+
+            function make_imgItem(src, ...classList) {
+                const imgItem = document.createElement("img");
+                imgItem.classList.add(...classList);
+                imgItem.setAttribute(
+                    "src",
+                    `http://test.api.weniv.co.kr/${src}`
+                );
+                return imgItem;
+            }
+
+            function make_nameItem(name, ...classList) {
+                const nameItem = document.createElement("h2");
+                nameItem.classList.add(...classList);
+                nameItem.innerText = name;
+                return nameItem;
+            }
+
+            function make_priceItem(price, ...classList) {
+                const priceItem = document.createElement("p");
+                priceItem.classList.add(...classList);
+                priceItem.innerText = price;
+                return priceItem;
+            }
+
+            function append(parent, ...child) {
+                parent.append(...child);
+            }
+
+            const body = document.querySelector("body");
+            // fetch -> 불러오기
+            // .then -> 앞의 작업이 성공했다면 실행
+            fetch("http://test.api.weniv.co.kr/mall")
+                .then((data) => data.json())
+                .then((data) => {
+                    for (const i of data) {
+                        const flexItem = make_box("flex-item");
+                        const imgItem = make_imgItem(
+                            i.thumbnailImg,
+                            "thumbnail"
+                        );
+                        const nameItem = make_nameItem(i.productName);
+                        const priceBox = make_box("priceBox");
+                        const priceItem = make_priceItem(i.price, "price");
+
+                        append(flexItem, imgItem, nameItem, priceBox);
+                        append(priceBox, priceItem);
+                        append(body, flexItem);
+                    }
+                });
+        </script>
+    </body>
+</html>

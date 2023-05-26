@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JSON 실습2</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <style>
+            .container {
+                display: flex;
+                gap: 50px;
+                flex-wrap: wrap;
+            }
+            .flex-item {
+                display: flex;
+                width: 300px;
+                flex-direction: column;
+                border: 2px solid #d9dbe0;
+                border-radius: 10px;
+            }
+            .status_box {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 40px;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .svg {
+                height: 20px;
+                width: 20px;
+            }
+            .status {
+                display: flex;
+                align-items: center;
+                font-weight: 700;
+                font-size: 17px;
+                gap: 5px;
+            }
+            .location {
+                font-size: 12px;
+                font-weight: 550;
+                color: #626468;
+                background-color: #f3f5fa;
+                border-radius: 20px;
+
+                padding: 4px 9px 4px 9px;
+            }
+            .blue {
+                fill: #2e6ff2;
+                color: #2e6ff2;
+            }
+            .yellow {
+                fill: #ffcf56;
+                color: #ffcf56;
+            }
+            .gray {
+                fill: #8d9299;
+                color: #8d9299;
+            }
+            .img_box {
+                position: relative;
+                height: 300px;
+                width: 300px;
+                overflow: hidden;
+                border-top: 2px solid #d9dbe0;
+                border-bottom: 2px solid #d9dbe0;
+            }
+            .thumbnail {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translate(50, 50);
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                margin: auto;
+            }
+            .heart_box {
+                display: flex;
+                position: absolute;
+                top: 85%;
+                left: 85%;
+                width: 25px;
+                height: 25px;
+                padding: 3px;
+                border-radius: 100%;
+                background-color: whitesmoke;
+            }
+            .heart {
+                position: absolute;
+                top: 25%;
+                left: 25%;
+                width: 20px;
+                height: 20px;
+                color: red;
+            }
+            .tag_box {
+                height: 30px;
+                margin-top: 10px;
+                display: flex;
+                align-items: center;
+                padding-left: 10px;
+            }
+            .tag {
+                font-size: 12px;
+                font-weight: 550;
+                border: 2px solid #d9dbe0;
+                border-radius: 20px;
+                margin: 0px 0px 0px 5px;
+                padding: 4px 9px 4px 9px;
+            }
+            .title_box {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .title {
+                height: 52px;
+                font-weight: 900;
+                font-size: 20px;
+                padding: 3px 15px 3px 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container"></div>
+        <script src="data2.js"></script>
+        <script>
+            function make_box(...classList) {
+                const box = document.createElement("div");
+                box.classList.add(...classList);
+                return box;
+            }
+
+            function make_imgItem(src, ...classList) {
+                const imgItem = document.createElement("img");
+                imgItem.classList.add(...classList);
+                imgItem.setAttribute("src", src);
+                return imgItem;
+            }
+            function make_iconItem(...classList) {
+                const iconItem = document.createElement("i");
+                iconItem.classList.add(...classList);
+                return iconItem;
+            }
+
+            function make_nameItem(name, ...classList) {
+                const nameItem = document.createElement("h2");
+                nameItem.classList.add(...classList);
+                nameItem.innerText = name;
+                return nameItem;
+            }
+
+            function make_statusItem(text, ...classList) {
+                const statusItem = document.createElement("div");
+                statusItem.classList.add(...classList);
+                statusItem.innerText = text;
+                return statusItem;
+            }
+
+            function make_tagItem(text, ...classList) {
+                const tagItem = document.createElement("div");
+                tagItem.classList.add(...classList);
+                tagItem.innerText = text;
+                return tagItem;
+            }
+
+            function make_titleItem(text, ...classList) {
+                const titleItem = document.createElement("h3");
+                titleItem.classList.add(...classList);
+                titleItem.innerText = text;
+                return titleItem;
+            }
+
+            const container = document.querySelector(".container");
+
+            function studyIn(i) {
+                const box = make_box("flex-item");
+                const statusBox = make_box("status_box");
+                let color = "";
+                let text_color = "black";
+                switch (i.study_status.name) {
+                    case "모집 중":
+                        color = "blue";
+                        break;
+                    case "진행 중":
+                        color = "yellow";
+                        break;
+                    default:
+                        color = "gray";
+                        text_color = "gray";
+                }
+                const status = make_statusItem(
+                    i.study_status.name,
+                    "status",
+                    color
+                );
+                const horn = make_iconItem("fa-solid", "fa-bullhorn", color);
+                const location = make_statusItem("온라인", "location");
+
+                const imgBox = make_box("img_box");
+                const thumbnail = make_imgItem(i.thumbnail, "thumbnail");
+                const heartBox = make_box("heart_box");
+                const heart = make_iconItem("fa-regular", "fa-heart", "heart");
+                const tagBox = make_box("tag_box");
+                const subject = make_tagItem(i.subject.name, "tag");
+                const difficulty = make_tagItem(i.difficulty.name, "tag");
+
+                const titleBox = make_box("title_box");
+                const title = make_titleItem(i.title, "title", text_color);
+
+                container.append(box);
+                box.append(statusBox, imgBox, tagBox, titleBox);
+                statusBox.append(status, location);
+                status.prepend(horn);
+                titleBox.append(title);
+                tagBox.append(difficulty, subject);
+                imgBox.append(thumbnail, heartBox);
+                heartBox.append(heart);
+            }
+
+            for (const i of data) {
+                studyIn(i);
+            }
+        </script>
+    </body>
+</html>

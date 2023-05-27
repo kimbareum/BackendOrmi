@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>구조적 가상 선택자</title>
-    <style>
-      /* 형제중 첫번째 요소 or 마지막 요소. 이름이 다르면 선택이 안됨 */
-      li:first-child {
-        border: 5px solid green;
-      }
-      li:last-child {
-        border: 5px solid green;
-      }
-      /* 형제중 n번째 요소. 이름이 다르면 선택 안됨. 2n odd even 2n+1 등도 사용 가능*/
-      li:nth-child(3) {
-        border: 5px solid salmon;
-      }
-      /* 부정 선택자*/
-      li:not(:nth-child(2n + 1)) {
-        border: 5px solid paleturquoise;
-      }
-    </style>
-  </head>
-  <body>
-    <ol>
-      <li>첫번째</li>
-      <li>두번째</li>
-      <li>세번째</li>
-      <li>네번째</li>
-      <li>다섯번째</li>
-    </ol>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>구조적 가상 선택자</title>
+        <style>
+            /* 형제중 첫번째 요소 or 마지막 요소. 이름이 다르면 선택이 안됨 */
+            li:first-child {
+                border: 5px solid green;
+            }
+            li:last-child {
+                border: 5px solid green;
+            }
+            /* 형제중 n번째 요소. 이름이 다르면 선택 안됨. 2n odd even 2n+1 등도 사용 가능*/
+            li:nth-child(3) {
+                border: 5px solid salmon;
+            }
+            /* 부정 선택자*/
+            li:not(:nth-child(2n + 1)) {
+                border: 5px solid paleturquoise;
+            }
+        </style>
+    </head>
+    <body>
+        <ol>
+            <li>첫번째</li>
+            <li>두번째</li>
+            <li>세번째</li>
+            <li>네번째</li>
+            <li>다섯번째</li>
+        </ol>
+    </body>
 </html>

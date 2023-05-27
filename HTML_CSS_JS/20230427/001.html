@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>select</title>
-  </head>
-  <body>
-    <div>
-      <strong>select</strong> : 목록중에 선택할수 있도록 해주는 박스를
-      만들어주는 태그
-    </div>
-    <div>
-      multiple : 시프트로 여러개 선택, size : 한번에 노출되는 항목의 수,
-      required : 선택필수, disabled : 선택불가
-    </div>
-    <div><strong>option</strong> : select에서 선택할수 있는 항목들</div>
-    <div>selected : 처음부터 선택되어있는것</div>
-    <div>
-      <strong>optgroup</strong> : option들을 묶어서 옵션의 그룹을 나눌 수 있음
-    </div>
-    <label>오늘의 메뉴</label>
-    <select>
-      <optgroup label="점심">
-        <option>쟁반짜장</option>
-        <option selected>간장계란밥</option>
-        <option>라면</option>
-      </optgroup>
-      <optgroup label="저녁">
-        <option>쟁반짜장</option>
-        <option selected>간장계란밥</option>
-        <option>라면</option>
-      </optgroup></select
-    ><br /><br />
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>select</title>
+    </head>
+    <body>
+        <div>
+            <strong>select</strong> : 목록중에 선택할수 있도록 해주는 박스를
+            만들어주는 태그
+        </div>
+        <div>
+            multiple : 시프트로 여러개 선택, size : 한번에 노출되는 항목의 수,
+            required : 선택필수, disabled : 선택불가
+        </div>
+        <div><strong>option</strong> : select에서 선택할수 있는 항목들</div>
+        <div>selected : 처음부터 선택되어있는것</div>
+        <div>
+            <strong>optgroup</strong> : option들을 묶어서 옵션의 그룹을 나눌 수
+            있음
+        </div>
+        <label>오늘의 메뉴</label>
+        <select>
+            <optgroup label="점심">
+                <option>쟁반짜장</option>
+                <option selected>간장계란밥</option>
+                <option>라면</option>
+            </optgroup>
+            <optgroup label="저녁">
+                <option>쟁반짜장</option>
+                <option selected>간장계란밥</option>
+                <option>라면</option>
+            </optgroup></select
+        ><br /><br />
 
-    <div>
-      <strong>fieldset, legend</strong> : fieldset으로 form 관련 요소들을 묶고
-      legend로 그룹의 제목을 제공
-    </div>
-    <fieldset>
-      <legend>사용기술</legend>
-      <label><input type="checkbox" />HTML</label>
-      <input type="checkbox" id="tech1" /><label for="tech1">python</label>
-    </fieldset>
-    <br /><br />
+        <div>
+            <strong>fieldset, legend</strong> : fieldset으로 form 관련 요소들을
+            묶고 legend로 그룹의 제목을 제공
+        </div>
+        <fieldset>
+            <legend>사용기술</legend>
+            <label><input type="checkbox" />HTML</label>
+            <input type="checkbox" id="tech1" />
+            <label for="tech1">python</label>
+        </fieldset>
+        <br /><br />
 
-    <div><strong>textarea</strong> : 줄글로 작성할 수 있는 텍스트 작성 폼</div>
-    <div>
-      cols : 너비(기본20), rows : 줄수, maxlength : 최대길이, minlength :
-      최소길이, placeholder : 도움말
-    </div>
-    <textarea
-      cols="100"
-      rows="20"
-      placeholder="텍스트를 입력해주세요"
-    ></textarea>
-  </body>
+        <div>
+            <strong>textarea</strong> : 줄글로 작성할 수 있는 텍스트 작성 폼
+        </div>
+        <div>
+            cols : 너비(기본20), rows : 줄수, maxlength : 최대길이, minlength :
+            최소길이, placeholder : 도움말
+        </div>
+        <textarea
+            cols="100"
+            rows="20"
+            placeholder="텍스트를 입력해주세요"
+        ></textarea>
+    </body>
 </html>

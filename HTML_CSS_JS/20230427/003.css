@@ -1,7 +1,7 @@
 /* 선택자 { 속성 : 속성값 ; } 의 구조 */
 body {
-  background: slateblue;
-  color: white;
+    background: slateblue;
+    color: white;
 }
 
 /* 적용방식 : 인라인방식, 내부스타일, 외부스타일 */

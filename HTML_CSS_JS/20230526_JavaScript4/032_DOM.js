@@ -1,6 +1,5 @@
 // 얘네들은 트리탐색을 하기때문에 부하가 발생함
 // for 문 등에서 쓰는건 자제하는게 좋음. 전역에서 쓰고 넘겨주는식이 좋음.
-
 document.getElementById();
 // Id로 접근하기
 
@@ -92,8 +91,10 @@ body.append(btn);
 
 btn.addEventListener("click", function (event) {
     console.log(event);
+
     console.log(event.target);
     console.log(event.currentTarget);
+    // 이벤트를 실행시킨 주체의 HTML을 가져옴.
     console.log(this);
     // 이벤트를 실행시킨 주체를 지칭함.(화살표함수를 쓰는것과 function 을 쓰는것이 다름)
     // function 을 쓰면 button 을 가리키고, => 를 쓰면 window를 가리킴

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>간단한 메모장 sweetalert2</title>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.10/dist/sweetalert2.all.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.10/dist/sweetalert2.min.css"
+        />
+        <style>
+            main {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            input {
+                display: block;
+                width: 300px;
+                height: 30px;
+                margin: auto;
+                margin-bottom: 10px;
+            }
+
+            textarea {
+                display: block;
+                width: 300px;
+                height: 300px;
+                margin: auto;
+                margin-bottom: 10px;
+            }
+
+            button {
+                display: block;
+                width: 306px;
+                height: 30px;
+            }
+
+            p {
+                width: 300px;
+                word-wrap: break-word;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <section>
+                <input type="text" name="" id="title" />
+                <textarea name="" id="content" cols="30" rows="10"></textarea>
+                <button onclick="saveNote()">메모</button>
+            </section>
+            <section id="display"></section>
+        </main>
+        <script>
+            let allMemo = JSON.parse(localStorage.getItem("allMemo"));
+            allMemo = allMemo ?? [];
+            render();
+
+            function saveNote() {
+                const title_box = document.getElementById("title");
+                const title = title_box.value;
+                title_box.value = "";
+                const content_box = document.getElementById("content");
+                const content = content_box.value;
+                content_box.value = "";
+
+                allMemo.push({ title, content, len: allMemo.length });
+
+                localStorage.setItem("allMemo", JSON.stringify(allMemo));
+                render();
+            }
+
+            function render() {
+                const display = document.getElementById("display");
+                display.innerHTML = "";
+
+                // 최신 게시물이 위로 올라오도록
+                for (let i = allMemo.length; i > 0; i--) {
+                    const item = allMemo[i - 1];
+                    const saveTitle = document.createElement("h2");
+                    const saveContent = document.createElement("p");
+                    const saveId = document.createElement("p");
+                    const deleteMemoBtn = document.createElement("button");
+                    const editMemoBtn = document.createElement("button");
+                    const itemBox = document.createElement("div");
+
+                    saveTitle.textContent = item.title;
+                    saveContent.textContent = item.content;
+                    saveId.textContent = item.len + 1;
+                    editMemoBtn.textContent = "수정";
+                    editMemoBtn.setAttribute("id", item.len);
+                    editMemoBtn.setAttribute("onclick", "edit()");
+                    deleteMemoBtn.textContent = "삭제";
+                    deleteMemoBtn.setAttribute("id", item.len);
+                    deleteMemoBtn.setAttribute("onclick", "remove()");
+
+                    itemBox.appendChild(saveId);
+                    itemBox.appendChild(saveTitle);
+                    itemBox.appendChild(saveContent);
+                    itemBox.appendChild(deleteMemoBtn);
+                    itemBox.appendChild(editMemoBtn);
+                    display.appendChild(itemBox);
+                }
+            }
+
+            function remove() {
+                const idx = allMemo.find(
+                    (item) => item.len == event.srcElement.id
+                );
+                if (idx) {
+                    allMemo.splice(
+                        allMemo.findIndex((item) => item.len == idx.len),
+                        1
+                    );
+                }
+                for (let i = idx.len; i < allMemo.length; i++) {
+                    allMemo[i].len -= 1;
+                }
+
+                localStorage.setItem("allMemo", JSON.stringify(allMemo));
+                render();
+            }
+
+            function edit() {
+                const data = allMemo.find(
+                    (item) => item.len == event.srcElement.id
+                );
+                if (data) {
+                    const parentNode = event.target.parentElement;
+                    const saveId = document.createElement("p");
+                    const input = document.createElement("input");
+                    const textarea = document.createElement("textarea");
+                    const button_box = document.createElement("div");
+                    const edit_button = document.createElement("button");
+                    const cancle_button = document.createElement("button");
+
+                    parentNode.innerHTML = "";
+
+                    saveId.textContent = data.len + 1;
+
+                    input.type = "text";
+                    input.id = "edit_title";
+                    input.value = data.title;
+
+                    textarea.id = "edit_content";
+                    textarea.rows = 10;
+                    textarea.cols = 30;
+                    textarea.value = data.content;
+
+                    edit_button.setAttribute("onclick", "confirm_edit()");
+                    edit_button.setAttribute("idx", data.len);
+                    edit_button.textContent = "수정";
+                    cancle_button.setAttribute("onclick", "render()");
+                    cancle_button.textContent = "취소";
+
+                    parentNode.append(
+                        saveId,
+                        input,
+                        textarea,
+                        edit_button,
+                        cancle_button
+                    );
+                }
+            }
+
+            function confirm_edit() {
+                const data = allMemo.find(
+                    (item) => item.len == event.srcElement.getAttribute("idx")
+                );
+
+                const edit_title_box = document.getElementById("edit_title");
+                const edit_title = edit_title_box.value;
+                const edit_content_box =
+                    document.getElementById("edit_content");
+                const edit_content = edit_content_box.value;
+
+                data.title = edit_title;
+                data.content = edit_content;
+
+                localStorage.setItem("allMemo", JSON.stringify(allMemo));
+                render();
+            }
+        </script>
+    </body>
+</html>

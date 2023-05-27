@@ -4,11 +4,10 @@
 
 ///////////////////////////////////////////////////////
 // Promise : 비동기프로그래밍을 할 수 있게 해주며, 위에서 언급된 콜백지옥을 어느저도 탈출할 수 있게 만들어주는 것.
-// 앞에서 썼던 fetch 같은곳에서 썼던 then.
+// 앞에서 썼던 fetch 같은것.
 
 // resolve(value) - 작업이 성공적으로 마무리되면 호출, 결과는 value에 담김.
 // reject(error) - 작업이 실패했을때 호출, 결과는 error에 담김.
-// 꼭 이름이 이거일필요는 없음. resolve에 해당되는 값이 나오면 성공이고, reject에 해당되는 값이 나오면 실패인것.
 
 let p1 = new Promise(function (resolve, reject) {
     resolve("hello world");

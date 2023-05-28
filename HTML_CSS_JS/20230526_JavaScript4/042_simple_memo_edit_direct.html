@@ -68,6 +68,9 @@
                 const content = content_box.value;
                 content_box.value = "";
 
+                console.log(content_box.parentNode);
+                console.log(content_box.parentElement);
+
                 allMemo.push({ title, content, len: allMemo.length });
 
                 localStorage.setItem("allMemo", JSON.stringify(allMemo));

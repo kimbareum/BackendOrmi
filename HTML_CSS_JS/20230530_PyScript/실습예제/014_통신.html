@@ -1,0 +1,107 @@
+<!DOCTYPE pyscript>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>통신</title>
+        <link
+            rel="stylesheet"
+            href="https://pyscript.net/latest/pyscript.css"
+        />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        <!-- prettier-ignore -->
+        <py-config>
+        [[fetch]]
+        from = "./py/"
+        files = ["request.py"]
+        </py-config>
+        <style>
+            body {
+                display: flex;
+                gap: 50px;
+                flex-wrap: wrap;
+            }
+            .flex-item {
+                display: flex;
+                width: 350px;
+                /* height: 450px; */
+                flex-direction: column;
+                justify-content: space-between;
+                text-align: center;
+            }
+            .thumbnail {
+                width: 100%;
+                border-radius: 10%;
+            }
+            .svg {
+                width: 20px;
+            }
+            .price {
+                font-weight: 600;
+            }
+            .priceBox {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- prettier-ignore -->
+        <py-script>
+        import asyncio
+        import json
+        from request import request  # import our request function.
+        baseurl = "http://test.api.weniv.co.kr"
+        createEl = js.document.createElement
+        querySe = js.document.querySelector
+        body = querySe('body')
+
+        def createBox(*classList):
+            box = createEl("div")
+            box.classList.add(*classList)
+            return box
+
+        def ImgItem(imgUrl):
+            #print(f'{baseurl}/{imgUrl}')
+            item = createEl("img")
+            item.classList.add("thumbnail")
+            item.setAttribute("src", f'{baseurl}/{imgUrl}')
+            return item
+
+        def NameItem(name):
+            item = createEl("h2")
+            item.classList.add("name")
+            item.innerText = name
+            return name
+
+        def PriceItem(price):
+            item = createEl("p")
+            item.classList.add("price")
+            item.innerText = price
+            return item
+        
+        def createCard(data):
+            for item in data:
+                flexBox = createBox("flex-item")
+                img = ImgItem(item['thumbnailImg'])
+                name = NameItem(item['productName'])
+                priceBox = createBox("priceBox")
+                price = PriceItem(item['price'])
+                priceBox.append(price)
+                flexBox.append(img, name, price)
+                body.append(flexBox)
+
+        async def main():
+            
+            response = await request(f"{baseurl}/mall")
+            # print(f"GET request=> status:{response.status}, json:{await response.json()}")
+            data = await response.json()
+
+            createCard(data)
+            
+        asyncio.ensure_future(main())
+        </py-script>
+    </body>
+</html>

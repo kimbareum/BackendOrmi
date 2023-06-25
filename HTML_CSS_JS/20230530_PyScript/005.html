@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+        <link
+            rel="stylesheet"
+            href="https://pyscript.net/latest/pyscript.css"
+        />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    </head>
+    <body>
+        <!-- prettier-ignore -->
+        <py-config>
+            packages = ["matplotlib", "pandas", "lxml"]
+        </py-config>
+        <!-- prettier-ignore -->
+        <py-script>
+            import pandas as pd
+            from pyodide.http import open_url
+
+            url = (
+                "https://paullab.co.kr/stock.html"
+            )
+            data = pd.read_html(open_url(url))
+            # print(data)
+            # print(data[0])
+            print(data[1])
+    </py-script>
+        <py-repl></py-repl>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE pyscript>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>로컬스토리지</title>
+        <link
+            rel="stylesheet"
+            href="https://pyscript.net/latest/pyscript.css"
+        />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        <!-- prettier-ignore -->
+        <py-config>
+        
+    </py-config>
+    </head>
+    <body>
+        <!-- prettier-ignore -->
+        <py-script>
+            # Set local storage item
+            js.window.localStorage.setItem("myKey", "myValue")
+            # Get local storage item
+            value = js.window.localStorage.getItem("myKey")
+            print(value)
+        </py-script>
+    </body>
+</html>

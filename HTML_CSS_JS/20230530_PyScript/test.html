@@ -1,0 +1,30 @@
+<!DOCTYPE pyscript>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel='stylesheet' href='https://pyscript.net/latest/pyscript.css' />
+    <script defer src='https://pyscript.net/latest/pyscript.js'></script>
+    <!-- prettier-ignore -->
+    <py-config>
+        packages = ["requests", "pyodide-http"]
+    </py-config>
+</head>
+<body>
+    
+    <!-- prettier-ignore -->
+    <py-script>
+        import requests
+        import pyodide_http
+
+        # Patch the Requests library so it  orks with Pyscript
+        pyodide_http.patch_all()
+
+        response = requests.get("http://test.api.weniv.co.kr/mall")
+        print(response.json())
+      </py-script>
+    </py-script>
+</body>
+</html>

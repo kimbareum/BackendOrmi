@@ -1,72 +1,92 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>게시판</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="chat.css" />
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>게시판</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="chat.css" />
+    </head>
 
-  <body>
-    <!-- header -->
-    <div class="header">
-      <h1><a href="index.html">HTML/CSS 실습</a></h1>
-      <div class="header-click">
-        <a href="login.html">로그인</a>
-        <a href="chat.html">채팅 </a>
-        <a href="sign_up.html">회원가입</a>
-        <button type="button">로그아웃</button>
-      </div>
-    </div>
-    <!-- // header -->
+    <body>
+        <!-- header -->
+        <div class="header">
+            <h1><a href="index.html">HTML/CSS 실습</a></h1>
+            <div class="header-click">
+                <a href="login.html">로그인</a>
+                <a href="chat.html">채팅 </a>
+                <a href="sign_up.html">회원가입</a>
+                <button type="button">로그아웃</button>
+            </div>
+        </div>
+        <!-- main -->
 
-    <div class="main">
-      <h2 class="main-title">채팅</h2>
-      <p class="main-desc">채팅 페이지입니다.</p>
-      <!-- 채팅 -->
-      <div class="chat-wrap">
-        <p class="chat-info">라이캣에게 질문을 해보세요!</p>
+        <div class="main">
+            <h2 class="main-title">채팅</h2>
+            <p class="main-desc">채팅 페이지입니다.</p>
+            <!-- 채팅 -->
+            <div class="chat-wrap">
+                <p class="chat-info">라이캣에게 질문을 해보세요!</p>
 
-        <div class="chat-screen">
-          <div class="ai-chat">
-            <img src="./img/licat.png" alt="licat" />
-            <div class="chat-content">반갑습니다. 어떤 것이 궁금하신가요?</div>
-          </div>
+                <div class="chat-screen">
+                    <div class="ai-chat">
+                        <img src="./img/licat.png" alt="licat" />
+                        <div class="chat-content">
+                            반갑습니다. 어떤 것이 궁금하신가요?
+                        </div>
+                    </div>
 
-          <div class="user-chat"><div class="chat-content">안녕</div></div>
-          <div class="user-chat"><div class="chat-content">안녕</div></div>
-          <div class="user-chat"><div class="chat-content">안녕</div></div>
+                    <div class="user-chat">
+                        <div class="chat-content">안녕</div>
+                    </div>
+                    <div class="user-chat">
+                        <div class="chat-content">안녕</div>
+                    </div>
+                    <div class="user-chat">
+                        <div class="chat-content">안녕</div>
+                    </div>
 
-          <div class="ai-chat">
-            <img src="./img/licat.png" alt="licat" />
-            <div class="chat-content">안녕하세요!</div>
-          </div>
+                    <div class="ai-chat">
+                        <img src="./img/licat.png" alt="licat" />
+                        <div class="chat-content">안녕하세요!</div>
+                    </div>
 
-          <div class="ai-chat">
-            <img src="./img/licat.png" alt="licat" />
-            <div class="chat-content">어떤 것이 궁금하신가요?</div>
-          </div>
-          <div class="user-chat"><div class="chat-content">안녕</div></div>
-          <div class="user-chat"><div class="chat-content">안녕</div></div>
-          <div class="user-chat"><div class="chat-content">안녕</div></div>
-          <div class="user-chat"><div class="chat-content">안녕</div></div>
-          <div class="user-chat"><div class="chat-content">안녕</div></div>
-          <div class="user-chat"><div class="chat-content">안녕</div></div>
+                    <div class="ai-chat">
+                        <img src="./img/licat.png" alt="licat" />
+                        <div class="chat-content">어떤 것이 궁금하신가요?</div>
+                    </div>
+                    <div class="user-chat">
+                        <div class="chat-content">안녕</div>
+                    </div>
+                    <div class="user-chat">
+                        <div class="chat-content">안녕</div>
+                    </div>
+                    <div class="user-chat">
+                        <div class="chat-content">안녕</div>
+                    </div>
+                    <div class="user-chat">
+                        <div class="chat-content">안녕</div>
+                    </div>
+                    <div class="user-chat">
+                        <div class="chat-content">안녕</div>
+                    </div>
+                    <div class="user-chat">
+                        <div class="chat-content">안녕</div>
+                    </div>
+                </div>
+
+                <form class="chat-form">
+                    <label for="question">질문</label>
+                    <textarea id="question"></textarea>
+                    <button type="submit" class="chat-btn">전송</button>
+                </form>
+            </div>
+            <!-- 채팅 -->
         </div>
 
-        <form class="chat-form">
-          <label for="question">질문</label>
-          <textarea id="question"></textarea>
-          <button type="submit" class="chat-btn">전송</button>
-        </form>
-      </div>
-      <!-- 채팅 -->
-    </div>
-
-    <!-- footer -->
-    <p class="footer">Copyright 2023. Chilli All rights reserved.</p>
-    <!-- //footer -->
-  </body>
+        <!-- footer -->
+        <p class="footer">Copyright 2023. Chilli All rights reserved.</p>
+        <!-- //footer -->
+    </body>
 </html>

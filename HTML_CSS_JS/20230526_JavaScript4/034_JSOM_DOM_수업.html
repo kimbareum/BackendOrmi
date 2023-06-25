@@ -74,9 +74,14 @@
             const body = document.querySelector("body");
             // fetch -> 불러오기
             // .then -> 앞의 작업이 성공했다면 실행
+            let shop_data;
             fetch("http://test.api.weniv.co.kr/mall")
-                .then((data) => data.json())
                 .then((data) => {
+                    console.log(data);
+                    return data.json();
+                })
+                .then((data) => {
+                    console.log(data);
                     for (const i of data) {
                         const flexItem = make_box("flex-item");
                         const imgItem = make_imgItem(

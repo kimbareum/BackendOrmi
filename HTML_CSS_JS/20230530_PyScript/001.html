@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>pyscript</title>
+        <link
+            rel="stylesheet"
+            href="https://pyscript.net/latest/pyscript.css"
+        />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    </head>
+    <body>
+        <div id="one">hi</div>
+        <!-- prettier-ignore -->
+        <py-config>
+            
+        </py-config>
+        <!-- prettier-ignore -->
+        <py-script>
+            print("hello")
+            for i in [10, 20, 30]:
+                print(i)
+                js.console.log(f'{i+10}, 와 파이썬 문법이야!')
+            print(help(pyscript.create))
+            one = Element('one')
+            one.write('text')
+            #print(dir(one))
+            #print(dir(one.element))
+            print(dir(pyscript))
+            # js DOM 문법 사용가능한 Element.element.
+
+            # js 이용해서 js처럼 쓰기.
+            # one = js.document.getElementById('one')
+            # one.innerHTML = "hello world!!!!"
+
+        </py-script>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="500" height="500"></canvas>
+  <script>
+    const canvas = document.querySelector('#canvas');
+    const ctx = canvas.getContext('2d');
+
+    const deg = (degree) => degree*Math.PI/180;
+
+    class Ball {
+      constructor(xPos, yPos, xSpeed, ySpeed, color) {
+        this.xPos = xPos;
+        this.yPos = yPos;
+        this.xSpeed = xSpeed;
+
+        this.ySpeed = ySpeed;
+        this.color = color;
+      }
+
+      drawBall() {
+        ctx.beginPath();
+        ctx.arc(this.xPos, this.yPos, 30, 0, deg(360));
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+
+      collisionBall() {
+        if (this.xPos >= 470 || this.xPos <= 30){
+          this.xSpeed *= -1;
+        }
+        if (this.yPos >= 470 || this.yPos <= 30){
+          this.ySpeed *= -1;
+        }
+      }
+      
+      moveBall() {
+        this.xPos += this.xSpeed;
+        this.yPos += this.ySpeed;
+        this.drawBall();
+        this.collisionBall();
+      }
+    }
+
+    const ball = new Ball(30, 30, 8, 6, "teal");
+    const ball2 = new Ball(250, 50, 15, 11, "red");
+    const ball3 = new Ball(170, 250, 12, 15, "yellow");
+
+    const play = () => {
+      ctx.clearRect(0, 0, 500, 500);
+      ball.moveBall();
+      ball2.moveBall();
+      ball3.moveBall();
+      requestAnimationFrame(play);
+    }
+
+    requestAnimationFrame(play);
+  </script>
+</body>
+</html>

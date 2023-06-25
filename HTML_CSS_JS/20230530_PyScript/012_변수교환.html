@@ -1,0 +1,38 @@
+<!DOCTYPE pyscript>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>변수교환</title>
+        <link
+            rel="stylesheet"
+            href="https://pyscript.net/latest/pyscript.css"
+        />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        <!-- prettier-ignore -->
+        <py-config>
+        
+    </py-config>
+    </head>
+    <body>
+        <!-- prettier-ignore -->
+        <py-script>
+            name = 'hojun'
+            def addTwoNumbers(x, y):
+                return x + y
+        </py-script>
+        <script>
+            window.onload = function () {
+                console.log(pyscript.interpreter);
+            };
+            // 아래 코드를 console에서 실행해보세요.
+            // pyscript.interpreter
+            // pyscript.interpreter.globals
+            // pyscript.interpreter.globals.get('name')
+            // pyscript.interpreter.globals.get('addTwoNumbers')
+            // hello = pyscript.interpreter.globals.get('addTwoNumbers')
+            // hello(20, 30)
+        </script>
+    </body>
+</html>

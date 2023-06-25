@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="500" height="500"></canvas>
+  <script>
+    const canvas = document.querySelector('#canvas');
+    const ctx = canvas.getContext('2d');
+
+    const deg = (degree) => degree*Math.PI/180;
+
+    ctx.fillStyle = "#000";
+    
+    let xPos = 0;
+    let yPos = 0;
+    let dxPos = 8;
+    let dyPos = 6;
+    // let xDir = 1;
+    // let yDir = 1;
+
+    const play = () => {
+      ctx.clearRect(0, 0, 500, 500);
+      ctx.fillRect(xPos, yPos, 50, 50);
+      
+      xPos += dxPos;
+      yPos += dyPos;
+      if (xPos >= 450 || xPos <= 0) {
+        dxPos = -dxPos;
+      } 
+      if (yPos >= 450 || yPos <= 0) {
+        dyPos = -dyPos;
+      }
+      
+      requestAnimationFrame(play);
+    }
+
+    requestAnimationFrame(play);
+  </script>
+</body>
+</html>

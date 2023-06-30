@@ -3,6 +3,15 @@
 - group당 총계를 만들어줌.
 - 여러 그룹이면 그 그룹당 단계를 다 보여줌.
 
+```sql
+SELECT country
+     , COUNT(id) AS count_user
+FROM users
+GROUP BY ROLLUP(country);
+-- country 별 갯수를 세주고 null로 총개수도 표현해줌.
+-- coalesce 사용해서 이름을 붙일수도 있음.
+```
+
 ## WINDOW 함수
 
 - 각 row별로 연관되어 있는 데이터를 뽑고 그를 바탕으로 계산을 할 수 있는 함수

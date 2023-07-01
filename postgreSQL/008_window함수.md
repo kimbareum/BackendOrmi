@@ -18,7 +18,7 @@ GROUP BY ROLLUP(country);
 - 윈도우 함수는 행 그룹의 값을 계산하고 각 행마다 하나의 결과를 반환
 - 누적합계를 구하거나 할 수도 있음
 
-- window함수() OVER ( 조건(ㅖPARTITION BY, ORDER BY, WINDOWING) ) 식으로 사용.
+- window함수() OVER ( 조건( PARTITION BY, ORDER BY, WINDOWING) ) 식으로 사용.
 
 ### 분류
 
@@ -58,6 +58,18 @@ order by country, age
 
 ### LAG, LEAD
 - 바로 이전(LAG) 또는 바로 이후(LEAD) 의 데이터를 읽고, 그를 기준으로 계산.
+
+```sql
+select 
+  id,
+  first_name,
+  last_name,
+  lag(id) over(order by id) as id_prev,
+  lead(id) over(order by id) as id_next
+ from users
+ where id in (1,2,3,4,5)
+ order by i
+ ```
 
 ### FIRST_VALUE, LAST_VALUE, NTH_VALUE(칼럼, 위치)
 - 첫번째 값과 마지막 값(현재까지 살펴본 범위의 마지막값), N번째 위치의 값을 가져오는 함수.

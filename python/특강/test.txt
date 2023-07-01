@@ -1,0 +1,5 @@
+log_name, 2023-07-01 20:39:56,075, INFO, info
+log_name, 2023-07-01 20:39:56,075, WARNING, warning
+log_name, 2023-07-01 20:39:56,076, ERROR, error
+log_name, 2023-07-01 20:39:56,076, CRITICAL, critical
+log_name, 2023-07-01 20:39:56,076, ERROR, division by zero error
